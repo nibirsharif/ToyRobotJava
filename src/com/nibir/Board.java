@@ -10,4 +10,8 @@ public class Board {
         this.rows = rows;
         this.columns = columns;
     }
+
+    public boolean isValidPosition(int row, int column) {
+        return !(row > this.rows || row < 0 || column > this.columns || column < 0);
+    }
 }

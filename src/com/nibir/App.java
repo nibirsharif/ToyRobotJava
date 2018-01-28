@@ -15,6 +15,7 @@ public class App {
 
     public static void main(String[] args) {
         place = args[0].toString();
+        if (!place.equalsIgnoreCase("place")) exitFunction(0, "Invalid command!");
 
         String input[] = args[1].split(",");
         x = Integer.parseInt(input[0]);
@@ -22,6 +23,7 @@ public class App {
         direction = Direction.valueOf(input[2].toString().toUpperCase());
 
         board = new Board(4,4);
+        if (! board.isValidPosition(x, y)) exitFunction(0, "Invalid position!");
 
         while (sc.hasNextLine()){
             command  = sc.nextLine();
@@ -42,5 +44,10 @@ public class App {
 
         }
         System.out.println(x + "," + y + "," + direction);
+    }
+
+    private static void exitFunction(int value, String message) {
+        System.out.println(message + "\n\n");
+        System.exit(value);
     }
 }

@@ -36,8 +36,10 @@ public class App {
                     move(direction);
                     break;
                 case LEFT:
+                    direction = changeDirection(instruction, direction);
                     break;
                 case RIGHT:
+                    direction = changeDirection(instruction, direction);
                     break;
                 default:
                     break;
@@ -67,6 +69,44 @@ public class App {
         if (!board.isValidMove(x, y)) { exitFunction(0, "Invalid move!"); }
     }
 
+    public static Direction changeDirection(Instruction instruction, Direction direction) {
+        if (instruction.equals(Instruction.LEFT)) {
+            switch (direction) {
+                case NORTH:
+                    direction = Direction.WEST;
+                    break;
+                case SOUTH:
+                    direction = Direction.EAST;
+                    break;
+                case EAST:
+                    direction = Direction.NORTH;
+                    break;
+                case WEST:
+                    direction = Direction.SOUTH;
+                    break;
+                default:
+                    break;
+            }
+        } else if (instruction.equals(Instruction.RIGHT)) {
+            switch (direction) {
+                case NORTH:
+                    direction = Direction.EAST;
+                    break;
+                case SOUTH:
+                    direction = Direction.WEST;
+                    break;
+                case EAST:
+                    direction = Direction.SOUTH;
+                    break;
+                case WEST:
+                    direction = Direction.NORTH;
+                    break;
+                default:
+                    break;
+            }
+        }
+        return direction;
+    }
 
     private static void exitFunction(int value, String message) {
         System.out.println(message + "\n\n");

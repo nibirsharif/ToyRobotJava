@@ -1,4 +1,4 @@
-package com.nibir;
+package com.toy;
 
 public class Board {
     private int rows;

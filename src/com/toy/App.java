@@ -1,4 +1,4 @@
-package com.nibir;
+package com.toy;
 
 import java.util.Scanner;
 

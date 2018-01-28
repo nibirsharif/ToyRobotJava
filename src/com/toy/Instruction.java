@@ -1,4 +1,4 @@
-package com.nibir;
+package com.toy;
 
 public enum Instruction {
     MOVE,

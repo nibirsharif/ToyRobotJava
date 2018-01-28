@@ -33,6 +33,7 @@ public class App {
 
             switch (instruction) {
                 case MOVE:
+                    move(direction);
                     break;
                 case LEFT:
                     break;
@@ -45,6 +46,27 @@ public class App {
         }
         System.out.println(x + "," + y + "," + direction);
     }
+
+    public static void move(Direction direction) {
+        switch (direction) {
+            case NORTH:
+                y++;
+                break;
+            case SOUTH:
+                y--;
+                break;
+            case EAST:
+                x++;
+                break;
+            case WEST:
+                x--;
+                break;
+            default:
+                break;
+        }
+        if (!board.isValidMove(x, y)) { exitFunction(0, "Invalid move!"); }
+    }
+
 
     private static void exitFunction(int value, String message) {
         System.out.println(message + "\n\n");

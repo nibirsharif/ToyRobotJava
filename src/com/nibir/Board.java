@@ -14,4 +14,10 @@ public class Board {
     public boolean isValidPosition(int row, int column) {
         return !(row > this.rows || row < 0 || column > this.columns || column < 0);
     }
+
+    public boolean isValidMove(int row, int column) {
+        if (!(row >= 0 && row <= rows)) return false;
+        else if (!(column >= 0 && column <= columns)) return false;
+        else return true;
+    }
 }
